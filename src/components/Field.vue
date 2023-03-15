@@ -14,9 +14,7 @@ export default {
             this.$emit('actionFill');
         }
     },
-    mounted() {
-        // console.log("from child component squareValue", this.squareValue);
-    }
+
 }
 </script>
 

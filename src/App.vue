@@ -1,5 +1,5 @@
 <script>
-import Square from './components/Filed.vue'
+import Square from './components/Field.vue'
 export default {
   name: "app",
   components: { Square },
@@ -160,13 +160,11 @@ export default {
 .bottompage {
   position: absolute;
   bottom: 0;
-  /* margin-bottom: 10px; */
   padding: 20px 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   text-align: center;
-  /* padding: 4px 4px; */
   background-color: #f4f4f4;
 }
 
