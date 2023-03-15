@@ -3,6 +3,9 @@ import Square from './components/Filed.vue'
 export default {
   name: "app",
   components: { Square },
+  beforeCreate() {
+    localStorage.clear()
+  },
   data() {
     return {
       xIsNext: true,
@@ -34,7 +37,7 @@ export default {
         this.restartGame = true
         this.setIsWinner()
       } else {
-        this.status.msg = "Próxima Jogada: " + (this.xIsNext ? "X" : "O");
+        this.status.msg = "Próximo a Jogar: " + (this.xIsNext ? "X" : "O");
       }
 
       if (this.calculateWinner() === "Draw") {
@@ -107,7 +110,6 @@ export default {
       this.status.xWiner = false
       this.status.oWiner = false
       this.status.draw = false
-
     },
     getClass() {
       if (this.status.status) {
