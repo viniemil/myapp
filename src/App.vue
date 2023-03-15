@@ -32,7 +32,7 @@ export default {
   methods: {
     computeStatus() {
       if (this.calculateWinner() === 'X' || this.calculateWinner() === 'O') {
-        this.status.msg = "Winner: " + this.calculateWinner();
+        this.status.msg = "Vencedor: " + this.calculateWinner();
         this.status.status = true
         this.restartGame = true
         this.setIsWinner()
@@ -40,7 +40,7 @@ export default {
         this.status.msg = "Próximo a Jogar: " + (this.xIsNext ? "X" : "O");
       }
 
-      if (this.calculateWinner() === "Draw") {
+      if (this.calculateWinner() === "Empate") {
         this.status.msg = this.calculateWinner()
         this.restartGame = true
       }
@@ -67,7 +67,7 @@ export default {
       this.status.draw = !values.includes(null);
 
       if (this.status.draw) {
-        return "Draw"
+        return "Empate"
       }
 
       return null;
@@ -127,7 +127,7 @@ export default {
   <div class="centerpage">
     <h1 class="centerTitle">Jogo da Velha</h1>
     <p v-bind:class='getClass()'>{{ computeStatus() }}</p>
-    <button class="restartButton" v-if="restartGame" @click="newGame">Restart Game</button>
+    <button class="restartButton" v-if="restartGame" @click="newGame">Novo Jogo</button>
     <div class="row">
       <Square :squareValue="squareValue[0]" @actionFill="onActionFill(0)" />
       <Square :squareValue="squareValue[1]" @actionFill="onActionFill(1)" />
@@ -144,7 +144,7 @@ export default {
       <Square :squareValue="squareValue[8]" @actionFill="onActionFill(8)" />
     </div>
   </div>
-  <div class="bottompage">Partidas : {{ playCount.mCount }} | Score X: {{ playCount.xCount }} - Score O: {{
+  <div class="bottompage">Partidas : {{ playCount.mCount }} | Placar X: {{ playCount.xCount }} - Placar O: {{
     playCount.oCount }}</div>
 </template>
 
